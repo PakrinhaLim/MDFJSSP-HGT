@@ -15,7 +15,7 @@ def valid(args, device, agent):
     terminated = False
     # print("valid ...")
     gain = None
-    action_list = [[] for i in range(len(cases))]
+    action_list = [[] for _ in range(len(cases))]
     with torch.no_grad():
         while not terminated:
             scores, actions = agent.take_action(state, sample=False, training=False)

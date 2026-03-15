@@ -24,7 +24,7 @@ if __name__ == '__main__':
     parser.add_argument('--prefix', type=str, default="default")
     parser.add_argument('--policy', type=str, default='hgt')
     parser.add_argument('--save_name', type=str, default=None)
-    parser.add_argument('--checkpoint_id', type=str, default=None, required=True)
+    parser.add_argument('--checkpoint_id', type=str, default='default')
     # environment
     parser.add_argument('--num_machine', type=int, default=10)
     parser.add_argument('--num_job', type=int, default=20)
