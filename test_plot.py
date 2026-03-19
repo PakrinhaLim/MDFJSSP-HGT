@@ -8,8 +8,8 @@ from utils.case_generator import CaseGenerator
 
 def main():
     args = {
-        'num_machine': 5, # As per valid_d04s1f001_m5j15
-        'num_job': 15,
+        'num_machine': 10, # As per valid_d04s1f001_m5j15
+        'num_job': 40,
         'num_operation_max': 200,
         'num_cases': 100,
         'dynamic_prop': 0.3, # Ignored, data is predefined
@@ -21,7 +21,7 @@ def main():
     }
 
     # Load predefined test Case
-    data_name = "test_d04s1f0015_m5j10"
+    data_name = "test_d04s1f001_m30j120"
     with open(f"./data/{data_name}.json", "r") as f:
         cases_json = json.load(f)
     print(f"Loaded cases from {data_name}.json")

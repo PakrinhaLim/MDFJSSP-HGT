@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 
 from utils.evaluate import eval
 from utils.utils import set_device, set_seed
@@ -10,10 +11,25 @@ def main(args_parsed):
     set_seed(args_parsed['seed'])
     # set device
     device = set_device(args_parsed['gpu'])
-    makespan, act_list = eval(args_parsed, device)
+    makespan, act_list, makespans = eval(args_parsed, device)
     file_name = args_parsed['prefix'] if args_parsed['save_name'] is None else args_parsed['save_name']
-    json.dump(act_list, open(args_parsed['save_path'] + file_name + 'actions.json', 'w'))
+    
+    if args_parsed['visualize']:
+        out_dir = os.path.dirname(args_parsed['save_gantt_path'])
+        if not out_dir:
+            out_dir = '.'
+        os.makedirs(out_dir, exist_ok=True)
+        json.dump(act_list, open(args_parsed['save_gantt_path'] + file_name + 'actions.json', 'w'))
 
+        # Load cases explicitly to pass into plot_gantt
+        from utils.case_generator import CaseGenerator
+        from utils.plot_gantt import plot_gantt
+        
+        cases_test = json.load(open(f"./data/{args_parsed['data_name']}.json", "r"))
+        cases_test = CaseGenerator.from_json(cases_test)
+        
+        gantt_save_path = os.path.join(out_dir, "gantt_charts")
+        plot_gantt(cases_test, act_list, gantt_save_path, makespans=makespans)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Dynamic Flexible Job Scheduling')
@@ -70,6 +86,11 @@ if __name__ == '__main__':
                         )
     parser.add_argument("--seed", type=int, default=None,
                         help="random seed.")
+    # visualize
+    parser.add_argument("--visualize", type=bool, default=True,
+                        help="visualize the gantt chart.")
+    parser.add_argument("--save_gantt_path", type=str, default="saved_plots/",
+                        help="save path for gantt chart.")
     args_parsed = parser.parse_args()
     args_parsed = vars(args_parsed)
     main(args_parsed)

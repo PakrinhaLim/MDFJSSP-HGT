@@ -1,3 +1,5 @@
 .venv/
 .[pyc|pyo|pyd]
 __pycache__/
+checkpoint/
+saved_plots/
