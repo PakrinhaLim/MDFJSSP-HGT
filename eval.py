@@ -28,8 +28,16 @@ def main(args_parsed):
         cases_test = json.load(open(f"./data/{args_parsed['data_name']}.json", "r"))
         cases_test = CaseGenerator.from_json(cases_test)
         
-        gantt_save_path = os.path.join(out_dir, "gantt_charts")
-        plot_gantt(cases_test, act_list, gantt_save_path, makespans=makespans)
+        gantt_save_path = os.path.join(out_dir, "gantt_charts", args_parsed['data_name'], args_parsed['checkpoint_id'])
+        plot_gantt(cases_test, act_list, gantt_save_path, makespans=makespans, truncate_breakdowns=args_parsed.get('truncate_breakdowns', False))
+
+        scheduling_data = {
+            'makespan': float(makespan) if makespan is not None else None,
+            'makespans': [float(m) for m in makespans] if makespans is not None else None,
+            'act_list': act_list
+        }
+        with open(os.path.join(gantt_save_path, f"{file_name}_scheduling_data.json"), 'w') as f:
+            json.dump(scheduling_data, f, indent=4)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Dynamic Flexible Job Scheduling')
@@ -91,6 +99,8 @@ if __name__ == '__main__':
                         help="visualize the gantt chart.")
     parser.add_argument("--save_gantt_path", type=str, default="saved_plots/",
                         help="save path for gantt chart.")
+    parser.add_argument("--truncate_breakdowns", type=bool, default=False,
+                        help="Whether to cut off machine breakdowns at the makespan time.")
     args_parsed = parser.parse_args()
     args_parsed = vars(args_parsed)
     main(args_parsed)

@@ -63,10 +63,12 @@ class PPO:
         if self.running_mean is None:
             self.running_mean = batch_mean
         else:
+            self.running_mean = self.running_mean.to(batch_mean.device)
             self.running_mean = self.beta * self.running_mean + (1 - self.beta) * batch_mean
         if self.running_var is None:
             self.running_var = batch_var
         else:
+            self.running_var = self.running_var.to(batch_var.device)
             self.running_var = self.beta * self.running_var + (1 - self.beta) * batch_var
         episode_return = (episode_return - self.running_mean) / (torch.sqrt(self.running_var) + 1e-8)
         return episode_return
@@ -161,3 +163,25 @@ class PPO:
     def load_policy(self, path):
         self.policy.load_state_dict(torch.load(path + '/model.pth'))
         self.policy.to(self.device)
+
+    def save_checkpoint(self, path):
+        if not os.path.exists(path):
+            os.makedirs(path)
+        checkpoint = {
+            'policy_state_dict': self.policy.state_dict(),
+            'optimizer_state_dict': self.optimizer.state_dict(),
+            'scheduler_state_dict': self.scheduler.state_dict() if self.scheduler is not None else None,
+            'running_mean': self.running_mean,
+            'running_var': self.running_var
+        }
+        torch.save(checkpoint, path + '/checkpoint.pth')
+
+    def load_checkpoint(self, path):
+        checkpoint = torch.load(path + '/checkpoint.pth', map_location=self.device)
+        self.policy.load_state_dict(checkpoint['policy_state_dict'])
+        self.policy.to(self.device)
+        self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        if self.scheduler is not None and checkpoint['scheduler_state_dict'] is not None:
+            self.scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+        self.running_mean = checkpoint['running_mean']
+        self.running_var = checkpoint['running_var']

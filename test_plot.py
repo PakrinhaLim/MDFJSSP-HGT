@@ -8,8 +8,8 @@ from utils.case_generator import CaseGenerator
 
 def main():
     args = {
-        'num_machine': 10, # As per valid_d04s1f001_m5j15
-        'num_job': 40,
+        'num_machine': 40, # As per valid_d04s1f001_m5j15
+        'num_job': 1000,
         'num_operation_max': 200,
         'num_cases': 100,
         'dynamic_prop': 0.3, # Ignored, data is predefined
@@ -21,7 +21,7 @@ def main():
     }
 
     # Load predefined test Case
-    data_name = "test_d04s1f001_m30j120"
+    data_name = "multilayer_pcb_dataset_standard"
     with open(f"./data/{data_name}.json", "r") as f:
         cases_json = json.load(f)
     print(f"Loaded cases from {data_name}.json")
@@ -29,7 +29,7 @@ def main():
     cases = CaseGenerator.from_json(cases_json)
     
     # We will just plot the first case from the batch
-    env = MDFJSSPEnv(args, cases, device='cpu')
+    env = MDFJSSPEnv(args, cases, device='cuda')
     state = env.reset()
     
     # Process the initial state to load in the first jobs

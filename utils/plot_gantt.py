@@ -4,7 +4,7 @@ import matplotlib.patches as mpatches
 import numpy as np
 import os
 
-def plot_gantt(cases, action_list, save_path, makespans=None):
+def plot_gantt(cases, action_list, save_path, makespans=None, truncate_breakdowns=False):
     """
     Plots Gantt charts for the scheduling cases.
     action_list should be a list of lists, where each inner list contains:
@@ -29,7 +29,7 @@ def plot_gantt(cases, action_list, save_path, makespans=None):
         for breakdown in case.broken_down_list:
             mac_id, occur_time, duration = breakdown
             
-            if makespans is not None:
+            if makespans is not None and truncate_breakdowns:
                 makespan = makespans[case_idx]
                 if occur_time >= makespan:
                     continue
