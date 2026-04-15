@@ -115,7 +115,7 @@ if __name__ == "__main__":
     
     pcb_data = PCBDataGenerator()
     pcb_data.processing_info
-    pcb_data.save_dataset(os.path.abspath(os.path.join(os.path.dirname(__file__), 'data', 'original_pcb_data.json')))
+    pcb_data.save_dataset(os.path.abspath(os.path.join(os.path.dirname(__file__), 'raw_pcb_data', 'original_pcb_data.json')))
     # Destination output location tailored for eval.py/run.py compatibility
     output_file = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'multilayer_pcb_dataset_standard.json'))
     

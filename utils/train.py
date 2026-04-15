@@ -9,9 +9,17 @@ from tqdm import tqdm
 
 
 import os
-
 def train(args, device):
-    env = MDFJSSPEnv(args, None, device=device)
+    if args.get('use_macro_env', False):
+        from utils.macro_case_generator import MacroCaseGenerator
+        import json
+        with open('./data/' + args['data_name'] + '.json', 'r') as f:
+            cases_json = json.load(f)
+        cases = MacroCaseGenerator.load_from_pcb_standard_json(cases_json, args['num_cases'], args)
+        from env.mdfjssp_macro import MDFJSSPMacroEnv
+        env = MDFJSSPMacroEnv(args, cases, device=device)
+    else:
+        env = MDFJSSPEnv(args, None, device=device)
     agent = PPO(args, device=device)
     # rand_t = valid(args, device, agent)
 

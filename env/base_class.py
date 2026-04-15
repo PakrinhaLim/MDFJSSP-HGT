@@ -191,6 +191,16 @@ class State:
         self.arc_raw_feature[:, :, :, 1] = (self.operation_time.float() - action_timer.float()) * torch.sign(
             action_timer.float())
 
+        # Approach 1 Features: remaining pieces & waiting in queue
+        if self.operation_raw_feature.size(2) >= 9:
+            # feature 7: remaining pieces to process (1 if unstarted/processing, 0 if finished)
+            self.operation_raw_feature[:, :, 7] = (self.mask_operation & ~self.mask_operation_finished).squeeze(1).float()
+            
+            # feature 8: pieces waiting in queue (runnable but not started)
+            mask_available = self.mask_operation_finished.float() @ self.operation_adj_matrix.float()
+            mask_waiting = mask_available.bool() & self.mask_operation & ~self.mask_operation_finished & ~self.mask_operation_processing
+            self.operation_raw_feature[:, :, 8] = mask_waiting.squeeze(1).float()
+
     def get_machine_encoder_mask(self):
         return self.mask_machine_operation * self.mask_operation * ~self.mask_operation_finished
 

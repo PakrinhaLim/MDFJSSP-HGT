@@ -1,0 +1,585 @@
+{
+    "instance_name": "multilayer_pcb_50_batches",
+    "nr_machines": 40,
+    "jobs": [
+        {
+            "job_id": 0,
+            "product_type": "Product_1_Standard_4Layer",
+            "pieces_in_batch": 100,
+            "operations": [
+                {
+                    "operation_id": 0,
+                    "processing_times": {
+                        "machine_0": 20,
+                        "machine_1": 20,
+                        "machine_2": 20,
+                        "machine_3": 20
+                    },
+                    "predecessors": null
+                },
+                {
+                    "operation_id": 1,
+                    "processing_times": {
+                        "machine_4": 10,
+                        "machine_5": 10,
+                        "machine_6": 10,
+                        "machine_7": 10
+                    },
+                    "predecessors": [
+                        0
+                    ]
+                },
+                {
+                    "operation_id": 2,
+                    "processing_times": {
+                        "machine_8": 180,
+                        "machine_9": 180,
+                        "machine_10": 180
+                    },
+                    "predecessors": [
+                        1
+                    ]
+                },
+                {
+                    "operation_id": 3,
+                    "processing_times": {
+                        "machine_11": 50,
+                        "machine_12": 50,
+                        "machine_13": 50,
+                        "machine_14": 50,
+                        "machine_15": 50,
+                        "machine_16": 50,
+                        "machine_17": 50,
+                        "machine_18": 50,
+                        "machine_19": 50,
+                        "machine_20": 50,
+                        "machine_21": 50,
+                        "machine_22": 50,
+                        "machine_23": 50,
+                        "machine_24": 50,
+                        "machine_25": 50,
+                        "machine_26": 50
+                    },
+                    "predecessors": [
+                        2
+                    ]
+                },
+                {
+                    "operation_id": 4,
+                    "processing_times": {
+                        "machine_27": 30,
+                        "machine_28": 30
+                    },
+                    "predecessors": [
+                        3
+                    ]
+                },
+                {
+                    "operation_id": 5,
+                    "processing_times": {
+                        "machine_29": 70,
+                        "machine_30": 70,
+                        "machine_31": 70,
+                        "machine_32": 70
+                    },
+                    "predecessors": [
+                        4
+                    ]
+                },
+                {
+                    "operation_id": 6,
+                    "processing_times": {
+                        "machine_33": 20,
+                        "machine_34": 20,
+                        "machine_35": 20,
+                        "machine_36": 20
+                    },
+                    "predecessors": [
+                        5
+                    ]
+                },
+                {
+                    "operation_id": 7,
+                    "processing_times": {
+                        "machine_37": 30,
+                        "machine_38": 30,
+                        "machine_39": 30
+                    },
+                    "predecessors": [
+                        6
+                    ]
+                }
+            ]
+        },
+        {
+            "job_id": 1,
+            "product_type": "Product_2_Complex_8Layer",
+            "pieces_in_batch": 100,
+            "operations": [
+                {
+                    "operation_id": 8,
+                    "processing_times": {
+                        "machine_0": 30,
+                        "machine_1": 30,
+                        "machine_2": 30,
+                        "machine_3": 30
+                    },
+                    "predecessors": null
+                },
+                {
+                    "operation_id": 9,
+                    "processing_times": {
+                        "machine_4": 15,
+                        "machine_5": 15,
+                        "machine_6": 15,
+                        "machine_7": 15
+                    },
+                    "predecessors": [
+                        8
+                    ]
+                },
+                {
+                    "operation_id": 10,
+                    "processing_times": {
+                        "machine_8": 240,
+                        "machine_9": 240,
+                        "machine_10": 240
+                    },
+                    "predecessors": [
+                        9
+                    ]
+                },
+                {
+                    "operation_id": 11,
+                    "processing_times": {
+                        "machine_11": 120,
+                        "machine_12": 120,
+                        "machine_13": 120,
+                        "machine_14": 120,
+                        "machine_15": 120,
+                        "machine_16": 120,
+                        "machine_17": 120,
+                        "machine_18": 120,
+                        "machine_19": 120,
+                        "machine_20": 120,
+                        "machine_21": 120,
+                        "machine_22": 120,
+                        "machine_23": 120,
+                        "machine_24": 120,
+                        "machine_25": 120,
+                        "machine_26": 120
+                    },
+                    "predecessors": [
+                        10
+                    ]
+                },
+                {
+                    "operation_id": 12,
+                    "processing_times": {
+                        "machine_27": 40,
+                        "machine_28": 40
+                    },
+                    "predecessors": [
+                        11
+                    ]
+                },
+                {
+                    "operation_id": 13,
+                    "processing_times": {
+                        "machine_8": 180,
+                        "machine_9": 180,
+                        "machine_10": 180
+                    },
+                    "predecessors": [
+                        12
+                    ]
+                },
+                {
+                    "operation_id": 14,
+                    "processing_times": {
+                        "machine_11": 150,
+                        "machine_12": 150,
+                        "machine_13": 150,
+                        "machine_14": 150,
+                        "machine_15": 150,
+                        "machine_16": 150,
+                        "machine_17": 150,
+                        "machine_18": 150,
+                        "machine_19": 150,
+                        "machine_20": 150,
+                        "machine_21": 150,
+                        "machine_22": 150,
+                        "machine_23": 150,
+                        "machine_24": 150,
+                        "machine_25": 150,
+                        "machine_26": 150
+                    },
+                    "predecessors": [
+                        13
+                    ]
+                },
+                {
+                    "operation_id": 15,
+                    "processing_times": {
+                        "machine_27": 50,
+                        "machine_28": 50
+                    },
+                    "predecessors": [
+                        14
+                    ]
+                },
+                {
+                    "operation_id": 16,
+                    "processing_times": {
+                        "machine_29": 90,
+                        "machine_30": 90,
+                        "machine_31": 90,
+                        "machine_32": 90
+                    },
+                    "predecessors": [
+                        15
+                    ]
+                },
+                {
+                    "operation_id": 17,
+                    "processing_times": {
+                        "machine_33": 30,
+                        "machine_34": 30,
+                        "machine_35": 30,
+                        "machine_36": 30
+                    },
+                    "predecessors": [
+                        16
+                    ]
+                },
+                {
+                    "operation_id": 18,
+                    "processing_times": {
+                        "machine_37": 50,
+                        "machine_38": 50,
+                        "machine_39": 50
+                    },
+                    "predecessors": [
+                        17
+                    ]
+                }
+            ]
+        },
+        {
+            "job_id": 2,
+            "product_type": "Product_3_Fast_Turnaround_2Layer",
+            "pieces_in_batch": 100,
+            "operations": [
+                {
+                    "operation_id": 19,
+                    "processing_times": {
+                        "machine_11": 20,
+                        "machine_12": 20,
+                        "machine_13": 20,
+                        "machine_14": 20,
+                        "machine_15": 20,
+                        "machine_16": 20,
+                        "machine_17": 20,
+                        "machine_18": 20,
+                        "machine_19": 20,
+                        "machine_20": 20,
+                        "machine_21": 20,
+                        "machine_22": 20,
+                        "machine_23": 20,
+                        "machine_24": 20,
+                        "machine_25": 20,
+                        "machine_26": 20
+                    },
+                    "predecessors": null
+                },
+                {
+                    "operation_id": 20,
+                    "processing_times": {
+                        "machine_27": 25,
+                        "machine_28": 25
+                    },
+                    "predecessors": [
+                        19
+                    ]
+                },
+                {
+                    "operation_id": 21,
+                    "processing_times": {
+                        "machine_0": 15,
+                        "machine_1": 15,
+                        "machine_2": 15,
+                        "machine_3": 15
+                    },
+                    "predecessors": [
+                        20
+                    ]
+                },
+                {
+                    "operation_id": 22,
+                    "processing_times": {
+                        "machine_4": 10,
+                        "machine_5": 10,
+                        "machine_6": 10,
+                        "machine_7": 10
+                    },
+                    "predecessors": [
+                        21
+                    ]
+                },
+                {
+                    "operation_id": 23,
+                    "processing_times": {
+                        "machine_29": 60,
+                        "machine_30": 60,
+                        "machine_31": 60,
+                        "machine_32": 60
+                    },
+                    "predecessors": [
+                        22
+                    ]
+                },
+                {
+                    "operation_id": 24,
+                    "processing_times": {
+                        "machine_33": 15,
+                        "machine_34": 15,
+                        "machine_35": 15,
+                        "machine_36": 15
+                    },
+                    "predecessors": [
+                        23
+                    ]
+                },
+                {
+                    "operation_id": 25,
+                    "processing_times": {
+                        "machine_37": 20,
+                        "machine_38": 20,
+                        "machine_39": 20
+                    },
+                    "predecessors": [
+                        24
+                    ]
+                }
+            ]
+        },
+        {
+            "job_id": 3,
+            "product_type": "Product_4_High_Density_Interconnect",
+            "pieces_in_batch": 100,
+            "operations": [
+                {
+                    "operation_id": 26,
+                    "processing_times": {
+                        "machine_0": 20,
+                        "machine_1": 20,
+                        "machine_2": 20,
+                        "machine_3": 20
+                    },
+                    "predecessors": null
+                },
+                {
+                    "operation_id": 27,
+                    "processing_times": {
+                        "machine_4": 20,
+                        "machine_5": 20,
+                        "machine_6": 20,
+                        "machine_7": 20
+                    },
+                    "predecessors": [
+                        26
+                    ]
+                },
+                {
+                    "operation_id": 28,
+                    "processing_times": {
+                        "machine_8": 200,
+                        "machine_9": 200,
+                        "machine_10": 200
+                    },
+                    "predecessors": [
+                        27
+                    ]
+                },
+                {
+                    "operation_id": 29,
+                    "processing_times": {
+                        "machine_11": 250,
+                        "machine_12": 250,
+                        "machine_13": 250,
+                        "machine_14": 250,
+                        "machine_15": 250,
+                        "machine_16": 250,
+                        "machine_17": 250,
+                        "machine_18": 250,
+                        "machine_19": 250,
+                        "machine_20": 250,
+                        "machine_21": 250,
+                        "machine_22": 250,
+                        "machine_23": 250,
+                        "machine_24": 250,
+                        "machine_25": 250,
+                        "machine_26": 250
+                    },
+                    "predecessors": [
+                        28
+                    ]
+                },
+                {
+                    "operation_id": 30,
+                    "processing_times": {
+                        "machine_27": 40,
+                        "machine_28": 40
+                    },
+                    "predecessors": [
+                        29
+                    ]
+                },
+                {
+                    "operation_id": 31,
+                    "processing_times": {
+                        "machine_29": 90,
+                        "machine_30": 90,
+                        "machine_31": 90,
+                        "machine_32": 90
+                    },
+                    "predecessors": [
+                        30
+                    ]
+                },
+                {
+                    "operation_id": 32,
+                    "processing_times": {
+                        "machine_33": 25,
+                        "machine_34": 25,
+                        "machine_35": 25,
+                        "machine_36": 25
+                    },
+                    "predecessors": [
+                        31
+                    ]
+                },
+                {
+                    "operation_id": 33,
+                    "processing_times": {
+                        "machine_37": 40,
+                        "machine_38": 40,
+                        "machine_39": 40
+                    },
+                    "predecessors": [
+                        32
+                    ]
+                }
+            ]
+        },
+        {
+            "job_id": 4,
+            "product_type": "Product_5_RF_Microwave_Board",
+            "pieces_in_batch": 100,
+            "operations": [
+                {
+                    "operation_id": 34,
+                    "processing_times": {
+                        "machine_0": 25,
+                        "machine_1": 25,
+                        "machine_2": 25,
+                        "machine_3": 25
+                    },
+                    "predecessors": null
+                },
+                {
+                    "operation_id": 35,
+                    "processing_times": {
+                        "machine_4": 15,
+                        "machine_5": 15,
+                        "machine_6": 15,
+                        "machine_7": 15
+                    },
+                    "predecessors": [
+                        34
+                    ]
+                },
+                {
+                    "operation_id": 36,
+                    "processing_times": {
+                        "machine_8": 150,
+                        "machine_9": 150,
+                        "machine_10": 150
+                    },
+                    "predecessors": [
+                        35
+                    ]
+                },
+                {
+                    "operation_id": 37,
+                    "processing_times": {
+                        "machine_11": 60,
+                        "machine_12": 60,
+                        "machine_13": 60,
+                        "machine_14": 60,
+                        "machine_15": 60,
+                        "machine_16": 60,
+                        "machine_17": 60,
+                        "machine_18": 60,
+                        "machine_19": 60,
+                        "machine_20": 60,
+                        "machine_21": 60,
+                        "machine_22": 60,
+                        "machine_23": 60,
+                        "machine_24": 60,
+                        "machine_25": 60,
+                        "machine_26": 60
+                    },
+                    "predecessors": [
+                        36
+                    ]
+                },
+                {
+                    "operation_id": 38,
+                    "processing_times": {
+                        "machine_27": 35,
+                        "machine_28": 35
+                    },
+                    "predecessors": [
+                        37
+                    ]
+                },
+                {
+                    "operation_id": 39,
+                    "processing_times": {
+                        "machine_29": 70,
+                        "machine_30": 70,
+                        "machine_31": 70,
+                        "machine_32": 70
+                    },
+                    "predecessors": [
+                        38
+                    ]
+                },
+                {
+                    "operation_id": 40,
+                    "processing_times": {
+                        "machine_33": 20,
+                        "machine_34": 20,
+                        "machine_35": 20,
+                        "machine_36": 20
+                    },
+                    "predecessors": [
+                        39
+                    ]
+                },
+                {
+                    "operation_id": 41,
+                    "processing_times": {
+                        "machine_37": 150,
+                        "machine_38": 150,
+                        "machine_39": 150
+                    },
+                    "predecessors": [
+                        40
+                    ]
+                }
+            ]
+        }
+    ]
+}

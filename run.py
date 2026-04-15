@@ -29,7 +29,8 @@ if __name__ == '__main__':
     parser.add_argument('--sigma_pres_time', type=float, default=1)
     parser.add_argument('--mu_lbd', type=float, default=0.01)
     # hgt policy
-    parser.add_argument('--d_operation_raw', type=int, default=7)
+    parser.add_argument('--use_macro_env', action='store_true', help='Use the Option 2 continuous macro flow graph')
+    parser.add_argument('--d_operation_raw', type=int, default=9)
     parser.add_argument('--d_machine_raw', type=int, default=4)
     parser.add_argument('--d_arc_raw', type=int, default=2)
     parser.add_argument('--num_layers', type=int, default=5)
